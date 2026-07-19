@@ -1,0 +1,15 @@
+import type { GIFResponse } from '../interfaces/gif-.response';
+import { giphyAPi } from './10-axios';
+
+export const getImage = async() => {
+
+    try {
+        const resp = await giphyAPi.get<GIFResponse>('/randomas');
+        return resp.data.data.images.downsized_large.url;
+
+    } catch (error) {
+        throw 'Url no encontrado'
+    }
+};
+
+getImage().then((url) => console.log({url}));
