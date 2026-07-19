@@ -4,7 +4,7 @@ import { giphyAPi } from './10-axios';
 export const getImage = async() => {
 
     try {
-        const resp = await giphyAPi.get<GIFResponse>('/randomas');
+        const resp = await giphyAPi.get<GIFResponse>('/random');
         return resp.data.data.images.downsized_large.url;
 
     } catch (error) {
